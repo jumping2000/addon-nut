@@ -6,14 +6,14 @@
 declare -a CONF_FILES=("nut.conf" "ups.conf" "upsd.conf" "upsmon.conf" "upssched.conf")
 
 # Ensure configuration exists
-if ! bashio::fs.directory_exists "/config/nut/"; then
-    mkdir -p /config/nut \
+if ! bashio::fs.directory_exists "/share/nut/"; then
+    mkdir -p /share/nut \
         || bashio::exit.nok "Failed to create NUT configuration directory"
 
     # Copy template files
     bashio::log.info "Copying config template files"
     for file in "${CONF_FILES[@]}"; do
-        cp "/etc/nut/${file}" /config/nut/
+        cp "/etc/nut/${file}" /share/nut/
     done
 fi
 
@@ -21,7 +21,7 @@ fi
 bashio::log.info "Copying user config files"
 
 # Copy user config files
-cp -rf /config/nut/. /etc/nut/
+cp -rf /share/nut/. /etc/nut/
 
 # Fix permissions
 chmod -R 660 /etc/nut/*
