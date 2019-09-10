@@ -18,7 +18,10 @@ if ! bashio::fs.directory_exists "/share/nut/"; then
 fi
 
 chmod -R 776 /share/nut
-sed '/^[/ d' /share/nut/ups.conf
+sed sed '/^#/!d' /share/nut/ups.conf
+
+### EDIT UPS.CONF FILE ###
+echo "[ups_config]" >> /share/nut/ups.conf
 
 ## DRIVER UPS##
 if [ "$NUT_PARAMETERS" -gt "0" ]; then
@@ -29,7 +32,8 @@ if [ "$NUT_PARAMETERS" -gt "0" ]; then
       echo "  driver = $NUT_SERVER_DRIVER" >> /share/nut/ups.conf
    fi
 fi
-## DRIVER UPS##
+
+## BATTERY UPS##
 if [ "$BATTERY_PARAMETERS" -gt "0" ]; then
    BATTERY_PARAMETERS_VALUE=$(bashio::config 'battery_parameters')
    RUNTIMECAL=$(bashio::config 'battery_parameters.runtimecal | length')
