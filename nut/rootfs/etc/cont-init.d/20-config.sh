@@ -18,7 +18,7 @@ if ! bashio::fs.directory_exists "/share/nut/"; then
 fi
 
 chmod -R 776 /share/nut
-sed sed '/^#/!d' /share/nut/ups.conf
+sed '/^#/!d' /share/nut/ups.conf
 
 ### EDIT UPS.CONF FILE ###
 echo "[ups_config]" >> /share/nut/ups.conf
