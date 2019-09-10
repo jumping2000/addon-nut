@@ -20,10 +20,10 @@ fi
 chmod -R 776 /share/nut
 sed '/^#/!d' /share/nut/ups.conf
 
-### EDIT UPS.CONF FILE ###
+#### EDIT UPS.CONF FILE ####
 echo "[ups_config]" >> /share/nut/ups.conf
 
-## DRIVER UPS##
+#### DRIVER UPS ####
 if [ "$NUT_PARAMETERS" -gt "0" ]; then
    NUT_PARAMETERS_VALUE=$(bashio::config 'nut_parameters')
    NUT_DRIVER=$(bashio::config 'nut_parameters.driver | length')
@@ -33,7 +33,7 @@ if [ "$NUT_PARAMETERS" -gt "0" ]; then
    fi
 fi
 
-## BATTERY UPS##
+#### BATTERY UPS ####
 if [ "$BATTERY_PARAMETERS" -gt "0" ]; then
    BATTERY_PARAMETERS_VALUE=$(bashio::config 'battery_parameters')
    RUNTIMECAL=$(bashio::config 'battery_parameters.runtimecal | length')
