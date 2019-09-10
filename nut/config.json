@@ -37,6 +37,18 @@
         "instcmds": ["all"],
         "actions": []
       }
+    ],
+    "nut_parameters": [
+      {
+        "driver": ""
+      }
+    ]
+    "battery_parameters": [
+      {
+        "runtimecal": [
+          { "runtime1": 460, "power1": 100, "runtime2": 980, "power2": 50 }
+        ]
+      }
     ]
   },
   "schema": {
@@ -48,6 +60,13 @@
         "instcmds": ["str"],
         "actions": ["str"],
         "upsmon": "match(^(master|slave)$)?"
+      }
+    ],
+    "battery_parameters": [
+      {
+        "runtimecal": [
+          { "runtime1": "int", "power1": "int", "runtime2": "int", "power2": "int" }
+        ]
       }
     ],
     "i_like_to_be_pwned": "bool?",
