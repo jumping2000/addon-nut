@@ -26,9 +26,9 @@ echo "[ups_config]" >> /share/nut/ups.conf
 ## DRIVER UPS##
 if [ "$NUT_PARAMETERS" -gt "0" ]; then
    NUT_PARAMETERS_VALUE=$(bashio::config 'nut_parameters')
-   NUT_SERVER_DRIVER=$(bashio::config 'nut_parameters.nut_server_driver | length')
+   NUT_DRIVER=$(bashio::config 'nut_parameters.nutdriver | length')
    if [ "$NUT_SERVER_DRIVER" -gt "0" ]; then 
-      NUT_SERVER_DRIVER_VALUE=$(bashio::config 'nut_parameters.driver')
+      NUT_SERVER_DRIVER_VALUE=$(bashio::config 'nut_parameters.nut_driver')
       echo "  driver = $NUT_SERVER_DRIVER" >> /share/nut/ups.conf
    fi
 fi
