@@ -62,6 +62,11 @@
         "upsmon": "match(^(master|slave)$)?"
       }
     ],
+    "nut_parameters": [
+      {
+        "driver": "str"
+      }
+    ],
     "battery_parameters": [
       {
         "runtimecal": [
