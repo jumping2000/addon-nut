@@ -17,6 +17,31 @@ if ! bashio::fs.directory_exists "/share/nut/"; then
     done
 fi
 
+chmod -R 776 /share/nut
+sed '/^[/ d' /share/nut/ups.conf
+
+## DRIVER UPS##
+if [ "$NUT_PARAMETERS" -gt "0" ]; then
+   NUT_PARAMETERS_VALUE=$(bashio::config 'nut_parameters')
+   NUT_SERVER_DRIVER=$(bashio::config 'nut_parameters.nut_server_driver | length')
+   if [ "$NUT_SERVER_DRIVER" -gt "0" ]; then 
+      NUT_SERVER_DRIVER_VALUE=$(bashio::config 'nut_parameters.driver')
+      echo "  driver = $NUT_SERVER_DRIVER" >> /share/nut/ups.conf
+   fi
+fi
+## DRIVER UPS##
+if [ "$BATTERY_PARAMETERS" -gt "0" ]; then
+   BATTERY_PARAMETERS_VALUE=$(bashio::config 'battery_parameters')
+   RUNTIMECAL=$(bashio::config 'battery_parameters.runtimecal | length')
+   if [ "$RUNTIMECAL" -gt "0" ]; then 
+      RUNTIMECAL_RUNTIME1=$(bashio::config 'battery_parameters.runtimecal.runtime1')
+      RUNTIMECAL_POWER1=$(bashio::config 'battery_parameters.runtimecal.power1')
+      RUNTIMECAL_RUNTIME2=$(bashio::config 'battery_parameters.runtimecal.runtime2')
+      RUNTIMECAL_POWER2=$(bashio::config 'battery_parameters.runtimecal.power2')
+      echo "  runtimecal = $RUNTIMECAL_RUNTIME1,$RUNTIMECAL_POWER1,$RUNTIMECAL_RUNTIME2,$RUNTIMECAL_POWER2" >> /share/nut/ups.conf
+   fi
+fi
+
 # Replace config files with user config files
 bashio::log.info "Copying user config files"
 
