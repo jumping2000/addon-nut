@@ -43,6 +43,7 @@ gen_ups_conf() {
     #### BATTERY UPS ####
     #if bashio::config.has_value 'runtimecal'; then
     #RUNTIMECAL=$(bashio::config 'runtimecal')
+    bashio::log.info "Configuring runtimecal"
     runtime1=$(bashio::config 'runtimecal.runtime1')
     power1=$(bashio::config 'runtimecal.power1')
     runtime2=$(bashio::config 'runtimecal.runtime2')
