@@ -11,7 +11,7 @@ gen_ups_conf() {
     local runtime1
     local runtime2
     local power1
-    local poer2
+    local power2
     local upsconf
     # Add overwrite notice to ups.conf
     {
@@ -36,13 +36,13 @@ gen_ups_conf() {
     {
         echo
         echo "[${upsconf}]"
-        echo "  driver= ${port}"
-        echo "  port= ${port}"
+        echo "  driver = ${driver}"
+        echo "  port = ${port}"
     } >> "${UPS_CONF}"
     
     #### BATTERY UPS ####
     #if bashio::config.has_value 'runtimecal'; then
-    RUNTIMECAL=$(bashio::config 'runtimecal')
+    #RUNTIMECAL=$(bashio::config 'runtimecal')
     runtime1=$(bashio::config 'runtimecal.runtime1')
     power1=$(bashio::config 'runtimecal.power1')
     runtime2=$(bashio::config 'runtimecal.runtime2')
