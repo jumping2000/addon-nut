@@ -20,6 +20,8 @@ fi
 
 chmod -R 777 /config/nut
 
+bashio::log.info "Copying user config files"
+
 # Copy user config files
 cp -rf /config/nut/. /etc/nut/
 
