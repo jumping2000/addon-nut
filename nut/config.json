@@ -38,17 +38,11 @@
         "actions": []
       }
     ],
-    "nut_parameters": [
-      {
-        "driver": ""
-      }
+    "nut_parameters": [ 
+      { "driver": "", "port": "auto" }
     ],
-    "battery_parameters": [
-      {
-        "runtimecal": [
-          { "runtime1": 460, "power1": 100, "runtime2": 980, "power2": 50 }
-        ]
-      }
+    "runtimecal": [
+      { "runtime1": 460, "power1": 100, "runtime2": 980, "power2": 50 }
     ]
   },
   "schema": {
@@ -63,16 +57,10 @@
       }
     ],
     "nut_parameters": [
-      {
-        "driver": "str"
-      }
+      { "driver": "str", "port": "str" }
     ],
-    "battery_parameters": [
-      {
-        "runtimecal": [
-          { "runtime1": "int", "power1": "int", "runtime2": "int", "power2": "int" }
-        ]
-      }
+    "runtimecal": [
+      { "runtime1": "int", "power1": "int", "runtime2": "int", "power2": "int" }
     ],
     "i_like_to_be_pwned": "bool?",
     "leave_front_door_open": "bool?"
