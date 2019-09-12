@@ -1,6 +1,6 @@
 {
   "name": "Network UPS Tools",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "slug": "nut",
   "description": "Manage battery backup (UPS) devices",
   "url": "https://github.com/hassio-addons/addon-nut",
@@ -38,12 +38,24 @@
         "actions": []
       }
     ],
-    "nut_parameters": [ 
-      { "driver": "", "port": "auto" }
+    "devices": [ 
+      { 
+        "name": "", 
+        "driver": "", 
+        "port": "", 
+        "desc": "",
+        "runtime1": 450, 
+        "runtime2": 940,
+        "config": []
+      }
     ],
-    "runtimecal": [
-      { "runtime1": 460, "power1": 100, "runtime2": 980, "power2": 50 }
-    ]
+    "upsd": [
+      "LISTEN 0.0.0.0"
+    ],
+    "nut": {
+      "mode": "netserver",
+      "poweroff_wait": "5s"
+    }
   },
   "schema": {
     "log_level": "match(^(trace|debug|info|notice|warning|error|fatal)$)?",
@@ -56,12 +68,26 @@
         "upsmon": "match(^(master|slave)$)?"
       }
     ],
-    "nut_parameters": [
-      { "driver": "str", "port": "str" }
+    "devices": [
+      { 
+        "name": "str", 
+        "driver": "str", 
+        "port": "str", 
+        "desc":"str",
+        "runtime1": "int",
+        "runtime2": "int",
+        "battery_voltage_high": "float?", 
+        "battery_voltage_low": "float?", 
+        "charge_time": "int?",
+        "idle_load": "float?",
+        "config": ["str"] 
+      }
     ],
-    "runtimecal": [
-      { "runtime1": "int", "power1": "int", "runtime2": "int", "power2": "int" }
-    ],
+    "upsd": ["str"],
+    "nut": {
+      "mode": "match(^(none|standalone|netserver|netclient)$)",
+      "poweroff_wait": "match(^[0-9]+(s|m|h|d)$)"
+    },
     "i_like_to_be_pwned": "bool?",
     "leave_front_door_open": "bool?"
   }
