@@ -132,7 +132,10 @@ gen_ups_conf() {
 gen_nut_conf() {
     bashio::log.info "Generating ${NUT_CONF}..."
     local mode
-
+    
+    ## delete configuration line ##
+    sed -i '/^#/!d' "${NUT_CONF}"
+   
     override_notice ${NUT_CONF}
     mode=$(bashio::config "nut.mode")
     echo "MODE=${mode}" >> "${NUT_CONF}"
