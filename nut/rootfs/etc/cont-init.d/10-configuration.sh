@@ -143,6 +143,10 @@ gen_nut_conf() {
 
 gen_upsd_conf() {
     bashio::log.info "Generating ${UPSD_CONF}..."
+    
+    ## delete configuration line ##
+    sed -i '/^#/!d' "${UPSD_CONF}"
+    
     override_notice ${UPSD_CONF}
     while read -r option; do
         echo "${option}" >> "${UPSD_CONF}"
