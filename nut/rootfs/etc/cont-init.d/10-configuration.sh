@@ -121,7 +121,11 @@ gen_ups_conf() {
         {
             echo "  runtimecal = $runtime1,100,$runtime2,50" 
             echo ""
-        } >> "${UPS_CONF}"  
+        } >> "${UPS_CONF}"
+        
+        while read -r option; do
+            echo "  ${option}" >> "${UPS_CONF}"
+        done <<< $(bashio::config "devices[${conf}].config")
     done  
 }
 
