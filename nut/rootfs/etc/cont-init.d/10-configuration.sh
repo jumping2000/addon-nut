@@ -68,7 +68,7 @@ gen_upsd_users() {
 }
 
 gen_ups_conf() {
-    local upsname
+    local name
     local driver
     local port
     local desc
@@ -87,14 +87,14 @@ gen_ups_conf() {
 
     #### DRIVER e PORT ####
     for conf in $(bashio::config "devices|keys[]"); do
-        upsname=$(bashio::config "devices[${conf}].upsname")
+        name=$(bashio::config "devices[${conf}].name")
         driver=$(bashio::config "devices[${conf}].driver")
         port=$(bashio::config "devices[${conf}].port")
         desc=$(bashio::config "devices[${conf}].desc")
-        bashio::log.info "Configuring UPS: ${upsname}"
+        bashio::log.info "Configuring UPS: ${name}"
         {
             echo
-            echo "[${upsname}]"
+            echo "[${name}]"
             echo "  driver = ${driver}"
             echo "  port = ${port}"
             echo "  desc= ${port}"
