@@ -18,4 +18,4 @@ for file in "${CONF_FILES[@]}"; do
     cp "/etc/nut/${file}" /share/nut
 done
 
-chmod -R 777 /config/nut/*
+chmod -R 777 /share/nut/*
