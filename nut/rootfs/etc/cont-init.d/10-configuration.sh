@@ -116,13 +116,14 @@ gen_ups_conf() {
             idle_load=$(bashio::config "devices[${conf}].idle_load")
             echo "  idleload = ${idle_load}" >> "${UPS_CONF}"
         fi
-        if bashio::config.hasvalue "devices[${conf}].runtime1"; then
+        if bashio::config.has_value "devices[${conf}].runtime1"; then
             runtime1=$(bashio::config "devices[${conf}].runtime1")
         fi
-        if bashio::config.hasvalue "devices[${conf}].runtime2"; then
+        if bashio::config.has_value "devices[${conf}].runtime2"; then
             runtime2=$(bashio::config "devices[${conf}].runtime2")
         fi
-        if [ -v runtime1] && [ -v runtime2]; then
+#        if [[ -v $runtime1 && -v $runtime2 ]]; then
+        if [[ (-n $runtime1 && -n $runtime2) ]]; then
             {
                 echo "  runtimecal = $runtime1,100,$runtime2,50" 
                 echo ""
