@@ -76,8 +76,8 @@ gen_ups_conf() {
     local battery_voltage_low
     local charge_time
     local idle_time
-    local runtime1 = 0
-    local runtime2 = 0
+    local runtime1=0
+    local runtime2=0
 
     ## delete configuration line ##
     sed -i '/^#/!d' "${UPS_CONF}"
