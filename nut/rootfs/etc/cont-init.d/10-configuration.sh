@@ -76,8 +76,8 @@ gen_ups_conf() {
     local battery_voltage_low
     local charge_time
     local idle_time
-    local runtime1
-    local runtime2
+    local runtime1 = 0
+    local runtime2 = 0
 
     ## delete configuration line ##
     sed -i '/^#/!d' "${UPS_CONF}"
@@ -97,7 +97,7 @@ gen_ups_conf() {
             echo "[${name}]"
             echo "  driver = ${driver}"
             echo "  port = ${port}"
-            echo "  desc= ${port}"
+            echo "  desc= ${desc}"
         } >> "${UPS_CONF}"
 
         if bashio::config.has_value "devices[${conf}].battery_voltage_high"; then
@@ -122,8 +122,8 @@ gen_ups_conf() {
         if bashio::config.has_value "devices[${conf}].runtime2"; then
             runtime2=$(bashio::config "devices[${conf}].runtime2")
         fi
-#        if [[ -v $runtime1 && -v $runtime2 ]]; then
-        if [[ (-n $runtime1 && -n $runtime2) ]]; then
+#        if [[ (-n $runtime1 && -n $runtime2) ]]; then
+        if (( $runtime1 > 0 && $runtime2 > 0 )); then
             {
                 echo "  runtimecal = $runtime1,100,$runtime2,50" 
                 echo ""
