@@ -416,7 +416,7 @@ SOFTWARE.
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg
 [reddit]: https://reddit.com/r/homeassistant
 [releases-shield]: https://img.shields.io/github/release/hassio-addons/addon-nut.svg
-[releases]: https://github.com/hassio-addons/addon-nut/releases
+[releases]: https://github.com/jumping2000/addon-nut/releases
 [repository]: https://github.com/hassio-addons/repository
 [semver]: https://semver.org/spec/v2.0.0.html
 [sleep]: https://linux.die.net/man/1/sleep
