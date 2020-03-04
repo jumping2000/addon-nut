@@ -389,11 +389,11 @@ SOFTWARE.
 [armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
 [armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
 [buymeacoffee-shield]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg
-[buymeacoffee]: https://www.buymeacoffee.com/dale3h
+[buymeacoffee]: https://www.buymeacoffee.com/jumping
 [commits-shield]: https://img.shields.io/github/commit-activity/y/hassio-addons/addon-nut.svg
 [commits]: https://github.com/hassio-addons/addon-nut/commits/master
 [contributors]: https://github.com/hassio-addons/addon-nut/graphs/contributors
-[dale3h]: https://github.com/dale3h
+[jumping]: https://github.com/jumping2000
 [discord-ha]: https://discord.gg/c5DvZ4e
 [discord-shield]: https://img.shields.io/discord/478094546522079232.svg
 [discord]: https://discord.me/hassioaddons
